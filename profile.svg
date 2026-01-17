@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="550" viewBox="0 0 800 550" xmlns="http://www.w3.org/2000/svg">
+  <style type="text/css">
+    <![CDATA[
+    .text { font-family: 'Courier New', monospace; font-size: 14px; fill: #e5e7eb; }
+    
+    /* ANSI Colors */
+    .c-cyan { fill: #22d3ee; font-weight: bold; }
+    .c-green { fill: #4ade80; font-weight: bold; }
+    .c-magenta { fill: #e879f9; font-weight: bold; }
+    .c-red { fill: #ef4444; font-weight: bold; }
+    .c-yellow { fill: #facc15; }
+    .c-blue { fill: #60a5fa; }
+    
+    .label { font-family: 'Courier New', monospace; font-size: 14px; font-weight: bold; }
+    
+    .cmd-text { font-family: 'Courier New', monospace; font-size: 14px; fill: #4ade80; font-weight: bold; } /* The typed command */
+
+    .value { fill: #e5e7eb; }
+    .dim { fill: #9ca3af; } /* Dim for PIDs */
+    .colon { fill: #e5e7eb; font-weight: normal; } /* White colon */
+    
+    /* 
+       Cycle Duration: 35s
+       0s - 1s (2.9%): Initial Wait (Blink)
+       1s - 3.5s (10.0%): Typing 'witr pranshu'
+       3.5s (10.0%): Reveal Result
+       3.5s - 32.5s (92.9%): Hold (Wait cursor blinks)
+       32.5s - 34.0s (97.1%): Type 'clear'
+       34.0s - 35.0s (100%): Hold 'clear' text
+       35.0s -> 0s: Blunt Reset
+    */
+
+    /* Phase 1: Typing 'witr pranshu' (Starts at 1s / 2.9%) */
+    @keyframes mask-move-1 {
+      0%, 2.9% { transform: translateX(0); }
+      10.0% { transform: translateX(102px); } /* 2.5s duration */
+      100% { transform: translateX(102px); }
+    }
+    
+    @keyframes cursor-cmd-1 {
+      0% { opacity: 1; }
+      2.9% { opacity: 1; } /* Start Typing */
+      10.0% { opacity: 1; } /* End Typing */
+      10.1% { opacity: 0; } /* Hide */
+      100% { opacity: 0; }
+    }
+
+    .typing-group-1 {
+      animation: mask-move-1 35s steps(12, end) infinite;
+    }
+    
+    .cursor-1 {
+      fill: #4ade80;
+      animation: cursor-cmd-1 35s steps(12, end) infinite;
+    }
+
+    /* Phase 2: Reveal (Starts at 3.5s / 10.0%) */
+    @keyframes reveal-result {
+      0%, 9.9% { opacity: 0; }
+      10.0%, 100% { opacity: 1; }
+    }
+    .result-content {
+      animation: reveal-result 35s step-end infinite;
+    }
+
+    /* Phase 3: Wait (Starts at 3.5s / 10.0%) */
+    @keyframes cursor-blink-wait {
+      0%, 9.9% { opacity: 0; }
+      10.0% { opacity: 1; }  /* Show at 3.5s */
+      92.8% { opacity: 1; }  /* End at 32.5s */
+      92.9% { opacity: 0; }  /* Hand off */
+      100% { opacity: 0; }
+    }
+    
+    @keyframes blink-animation {
+        0%, 49% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+    }
+
+    .cursor-wait-container {
+       animation: cursor-blink-wait 35s step-end infinite;
+    }
+    .cursor-wait {
+       fill: #4ade80;
+       animation: blink-animation 1s step-end infinite;
+    }
+
+    /* Phase 4: Clear (Starts at 32.5s / 92.9%) */
+    /* Finish at 34.0s / 97.1% */
+    @keyframes mask-move-clear {
+       0%, 92.8% { transform: translateX(0); }
+       97.1%, 100% { transform: translateX(42px); }
+    }
+    
+    @keyframes cursor-visibility-clear {
+       0%, 92.8% { opacity: 0; } 
+       92.9% { opacity: 1; } 
+       100% { opacity: 1; }
+    }
+
+    .typing-group-clear {
+       animation: mask-move-clear 35s steps(5, end) infinite;
+    }
+    
+    .cursor-clear {
+       fill: #4ade80;
+       animation: cursor-visibility-clear 35s step-end infinite;
+    }
+    ]]>
+  </style>
+  <rect width="800" height="550" fill="#111827" rx="8" />
+  
+  <circle cx="20" cy="20" r="6" fill="#ef4444" />
+  <circle cx="40" cy="20" r="6" fill="#f59e0b" />
+  <circle cx="60" cy="20" r="6" fill="#10b981" />
+
+  <g class="screen-content">
+      <text x="20" y="60" class="text"><tspan>$ </tspan></text>
+      
+      <g transform="translate(36, 46)">
+          <text class="cmd-text" y="14">witr pranshu</text>
+          <g class="typing-group-1">
+              <rect x="0" y="0" width="209" height="18" fill="#111827" />
+              <rect x="0" y="0" width="9" height="17" class="cursor-1" />
+          </g>
+      </g>
+
+      <g class="result-content">
+        <text x="20" y="100" class="text">
+          <tspan class="label c-blue">Target</tspan><tspan class="colon">&#160;&#160;&#160;&#160;&#160;&#160;: </tspan><tspan class="value">git</tspan>
+        </text>
+        <text x="20" y="140" class="text">
+          <tspan class="label c-blue">Process</tspan><tspan class="colon">&#160;&#160;&#160;&#160;&#160;: </tspan><tspan class="value">build </tspan><tspan class="dim">(pid 2)</tspan> <tspan class="c-yellow">{curious}</tspan>
+        </text>
+        <text x="20" y="165" class="text">
+          <tspan class="label c-cyan">User</tspan><tspan class="colon">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;: </tspan><tspan class="value">pranshuparmar</tspan>
+        </text>
+        <text x="20" y="190" class="text">
+          <tspan class="label c-green">Command</tspan><tspan class="colon">&#160;&#160;&#160;&#160;&#160;: </tspan><tspan class="value">/usr/bin/pranshu --build</tspan>
+        </text>
+        <text x="20" y="215" class="text">
+          <tspan class="label c-magenta">Started</tspan><tspan class="colon">&#160;&#160;&#160;&#160;&#160;: </tspan><tspan class="value">unknown (long-running)</tspan>
+        </text>
+        <text x="20" y="255" class="text">
+          <tspan class="label c-magenta">Why It Exists</tspan><tspan class="colon"> : </tspan>
+        </text>
+        <text x="20" y="280" class="text">
+          <tspan class="text">&#160;&#160;get-curious </tspan><tspan class="dim">(pid 0)</tspan> <tspan class="c-magenta">&#x2192;</tspan> <tspan class="text">learn </tspan><tspan class="dim">(pid 1)</tspan> <tspan class="c-magenta">&#x2192;</tspan> <tspan class="text">build </tspan><tspan class="dim">(pid 2)</tspan>
+        </text>
+        <text x="20" y="320" class="text">
+          <tspan class="label c-cyan">Source</tspan><tspan class="colon">&#160;&#160;&#160;&#160;&#160;&#160;: </tspan><tspan class="text">interest</tspan>
+        </text>
+        <text x="20" y="360" class="text">
+          <tspan class="label c-green">Working Dir</tspan><tspan class="colon">&#160;: </tspan><tspan class="text">/com/github/pranshuparmar</tspan>
+        </text>
+        <text x="20" y="385" class="text">
+          <tspan class="label c-cyan">Git Repo</tspan><tspan class="colon">&#160;&#160;&#160;&#160;: </tspan><tspan class="text">pranshuparmar (main)</tspan>
+        </text>
+        <text x="20" y="410" class="text">
+          <tspan class="label c-green">Listening</tspan><tspan class="colon">&#160;&#160;&#160;: </tspan><tspan class="value">0.0.0.0:443</tspan>
+        </text>
+        <text x="20" y="450" class="text">
+          <tspan class="label c-red">Warnings</tspan><tspan class="colon">&#160;&#160;&#160;&#160;: </tspan>
+        </text>
+        <text x="20" y="475" class="text">
+          <tspan class="text">&#160;&#160;&#8226; Human is listening on a public interface</tspan>
+        </text>
+
+        <text x="20" y="514" class="text"><tspan>$ </tspan></text>
+        
+        <g transform="translate(36, 500)">
+            <g>
+                <text class="cmd-text" y="14">clear</text>
+                <g class="typing-group-clear">
+                    <rect x="0" y="0" width="109" height="18" fill="#111827" />
+                    <rect x="0" y="0" width="9" height="17" class="cursor-clear" />
+                </g>
+            </g>
+            <g class="cursor-wait-container">
+               <rect width="9" height="17" class="cursor-wait" />
+            </g>
+        </g>
+      </g>
+  </g>
+</svg>
