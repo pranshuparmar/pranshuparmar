@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="800" height="550" viewBox="0 0 800 550" xmlns="http://www.w3.org/2000/svg">
+<svg width="800" height="490" viewBox="0 0 800 490" xmlns="http://www.w3.org/2000/svg">
   <style type="text/css">
     <![CDATA[
     .text { font-family: 'Courier New', monospace; font-size: 14px; fill: #e5e7eb; }
@@ -14,11 +14,11 @@
     
     .label { font-family: 'Courier New', monospace; font-size: 14px; font-weight: bold; }
     
-    .cmd-text { font-family: 'Courier New', monospace; font-size: 14px; fill: #4ade80; font-weight: bold; } /* The typed command */
+    .cmd-text { font-family: 'Courier New', monospace; font-size: 14px; fill: #4ade80; font-weight: bold; }
 
     .value { fill: #e5e7eb; }
-    .dim { fill: #9ca3af; } /* Dim for PIDs */
-    .colon { fill: #e5e7eb; font-weight: normal; } /* White colon */
+    .dim { fill: #9ca3af; }
+    .colon { fill: #e5e7eb; font-weight: normal; }
     
     /* 
        Cycle Duration: 35s
@@ -109,16 +109,16 @@
     }
     ]]>
   </style>
-  <rect width="800" height="550" fill="#111827" rx="8" />
+  <rect width="800" height="490" fill="#111827" rx="8" />
   
-  <circle cx="20" cy="20" r="6" fill="#ef4444" />
-  <circle cx="40" cy="20" r="6" fill="#f59e0b" />
-  <circle cx="60" cy="20" r="6" fill="#10b981" />
+  <circle cx="20" cy="15" r="6" fill="#ef4444" />
+  <circle cx="40" cy="15" r="6" fill="#f59e0b" />
+  <circle cx="60" cy="15" r="6" fill="#10b981" />
 
   <g class="screen-content">
-      <text x="20" y="60" class="text"><tspan>$ </tspan></text>
+      <text x="20" y="50" class="text"><tspan>$ </tspan></text>
       
-      <g transform="translate(36, 46)">
+      <g transform="translate(36, 36)">
           <text class="cmd-text" y="14">witr pranshu</text>
           <g class="typing-group-1">
               <rect x="0" y="0" width="209" height="18" fill="#111827" />
@@ -127,49 +127,49 @@
       </g>
 
       <g class="result-content">
-        <text x="20" y="100" class="text">
+        <text x="20" y="70" class="text">
           <tspan class="label c-blue">Target</tspan><tspan class="colon">&#160;&#160;&#160;&#160;&#160;&#160;: </tspan><tspan class="value">git</tspan>
         </text>
-        <text x="20" y="140" class="text">
+        <text x="20" y="110" class="text">
           <tspan class="label c-blue">Process</tspan><tspan class="colon">&#160;&#160;&#160;&#160;&#160;: </tspan><tspan class="value">build </tspan><tspan class="dim">(pid 2)</tspan> <tspan class="c-yellow">{curious}</tspan>
         </text>
-        <text x="20" y="165" class="text">
+        <text x="20" y="135" class="text">
           <tspan class="label c-cyan">User</tspan><tspan class="colon">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;: </tspan><tspan class="value">pranshuparmar</tspan>
         </text>
-        <text x="20" y="190" class="text">
+        <text x="20" y="160" class="text">
           <tspan class="label c-green">Command</tspan><tspan class="colon">&#160;&#160;&#160;&#160;&#160;: </tspan><tspan class="value">/usr/bin/pranshu --build</tspan>
         </text>
-        <text x="20" y="215" class="text">
+        <text x="20" y="185" class="text">
           <tspan class="label c-magenta">Started</tspan><tspan class="colon">&#160;&#160;&#160;&#160;&#160;: </tspan><tspan class="value">unknown (long-running)</tspan>
         </text>
-        <text x="20" y="255" class="text">
+        <text x="20" y="225" class="text">
           <tspan class="label c-magenta">Why It Exists</tspan><tspan class="colon"> : </tspan>
         </text>
-        <text x="20" y="280" class="text">
+        <text x="20" y="250" class="text">
           <tspan class="text">&#160;&#160;get-curious </tspan><tspan class="dim">(pid 0)</tspan> <tspan class="c-magenta">&#x2192;</tspan> <tspan class="text">learn </tspan><tspan class="dim">(pid 1)</tspan> <tspan class="c-magenta">&#x2192;</tspan> <tspan class="text">build </tspan><tspan class="dim">(pid 2)</tspan>
         </text>
-        <text x="20" y="320" class="text">
+        <text x="20" y="290" class="text">
           <tspan class="label c-cyan">Source</tspan><tspan class="colon">&#160;&#160;&#160;&#160;&#160;&#160;: </tspan><tspan class="text">interest</tspan>
         </text>
-        <text x="20" y="360" class="text">
+        <text x="20" y="330" class="text">
           <tspan class="label c-green">Working Dir</tspan><tspan class="colon">&#160;: </tspan><tspan class="text">/com/github/pranshuparmar</tspan>
         </text>
-        <text x="20" y="385" class="text">
+        <text x="20" y="355" class="text">
           <tspan class="label c-cyan">Git Repo</tspan><tspan class="colon">&#160;&#160;&#160;&#160;: </tspan><tspan class="text">pranshuparmar (main)</tspan>
         </text>
-        <text x="20" y="410" class="text">
+        <text x="20" y="380" class="text">
           <tspan class="label c-green">Listening</tspan><tspan class="colon">&#160;&#160;&#160;: </tspan><tspan class="value">0.0.0.0:443</tspan>
         </text>
-        <text x="20" y="450" class="text">
+        <text x="20" y="420" class="text">
           <tspan class="label c-red">Warnings</tspan><tspan class="colon">&#160;&#160;&#160;&#160;: </tspan>
         </text>
-        <text x="20" y="475" class="text">
+        <text x="20" y="445" class="text">
           <tspan class="text">&#160;&#160;&#8226; Human is listening on a public interface</tspan>
         </text>
 
-        <text x="20" y="514" class="text"><tspan>$ </tspan></text>
+        <text x="20" y="474" class="text"><tspan>$ </tspan></text>
         
-        <g transform="translate(36, 500)">
+        <g transform="translate(36, 460)">
             <g>
                 <text class="cmd-text" y="14">clear</text>
                 <g class="typing-group-clear">
